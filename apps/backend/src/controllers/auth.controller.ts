@@ -3,8 +3,8 @@ import { registerUserSchema, loginUserSchema } from "../types/user.type.js";
 import { prisma } from "../lib/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import "dotenv/config";
-
+import { config } from "dotenv";
+config();
 const generateToken = (userId: string) => {
   return jwt.sign({ id: userId }, process.env.JWT_SECRET || "", {
     expiresIn: "1h",

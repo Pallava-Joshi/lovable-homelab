@@ -1,10 +1,13 @@
 import { ChatOpenAI } from "@langchain/openai";
 
+const apiKey = process.env.OPENROUTER_API_KEY || "";
+console.log("OPENROUTER_API_KEY configured:", apiKey ? "✓ Present" : "✗ Missing");
+
 export const llm = new ChatOpenAI({
   model: "openai/gpt-4o-mini",
   temperature: 0.8,
   streaming: true,
-  apiKey: process.env.OPENROUTER_API_KEY || "",
+  apiKey: apiKey,
   configuration: {
     baseURL: "https://openrouter.ai/api/v1",
     defaultHeaders: {

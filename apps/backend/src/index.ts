@@ -1,4 +1,5 @@
-import "dotenv/config";
+import "./init.js";
+
 import express from "express";
 import { randomUUID } from "crypto";
 import { HumanMessage } from "@langchain/core/messages";
